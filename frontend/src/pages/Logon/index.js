@@ -7,7 +7,7 @@ export default function Logon() {
   return (
     <S.LogonWrapper>
       <S.FormWrapper>
-        <S.Logo src={logo} alt="" />
+        <S.Logo src={logo} alt="Imagem Logo" />
 
         <S.Form>
           <S.FormTitle>Faça seu logon</S.FormTitle>
@@ -15,10 +15,10 @@ export default function Logon() {
           <S.FormInput placeholder="Sua ID" />
           <S.FormSubmit type="submit">Entrar</S.FormSubmit>
 
-          <S.Link href="/register">
+          <S.LinkRegister to="/register">
             <S.IconLogin />
             Não tenho cadastro
-          </S.Link>
+          </S.LinkRegister>
         </S.Form>
       </S.FormWrapper>
 
