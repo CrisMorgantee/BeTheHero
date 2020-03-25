@@ -62,8 +62,7 @@ export const Power = styled.button`
 
 export const Title = styled.h1`
   margin: 80px 0 24px;
-  font-size: 32px;
-  
+  font-size: 32px;  
   font-weight: 700;
 `;
 
@@ -85,7 +84,7 @@ export const ItemTitle = styled.strong`
   display: block;
   margin-bottom: 16px;
   color: #41414d;
-
+  font-weight: 500
 `;
 
 export const CaseDesciption = styled.p`
