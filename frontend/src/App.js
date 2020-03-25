@@ -1,8 +1,13 @@
-import React from 'react'
+import React from "react";
+import Logon from "./pages/Logon";
+import GlobalStyles from "./styles/global";
 
 function App() {
   return (
-    <h1>Hello</h1>
+    <>
+      <GlobalStyles />
+      <Logon />
+    </>
   );
 }
 
