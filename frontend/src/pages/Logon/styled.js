@@ -31,6 +31,7 @@ export const FormTitle = styled.h1`
   font-size: 32px;
   margin-bottom: 32px;
   font-weight: 700;
+  color: #f5f5fd
 `;
 
 export const FormInput = styled.input`
@@ -67,20 +68,20 @@ export const LinkRegister = styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 40px;
-  color: #41414d;
+  color: #F8F8F2;
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
   transition: color 150ms;
 
   &:hover {
-    color: ${lighten(0.2, "#41414d")};
+    color: ${lighten(0.1, "#7159C1")};
   }
 `;
 
 export const IconLogin = styled(LogIn)`
   width: 16px;
-  color: #e02041;
+  color: #fff;
   margin-right: 8px;
 `;
 

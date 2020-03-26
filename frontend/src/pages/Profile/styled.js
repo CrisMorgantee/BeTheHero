@@ -13,6 +13,7 @@ export const ProfileWrapper = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
+  color: #f5f5fd;
 
   span {
     font-size: 20px;
@@ -53,17 +54,19 @@ export const Power = styled.button`
   background-color: transparent;
   margin-left: 16px;
   transition: border 150ms;
+  color: #f5f5fd;
 
   &:hover{
-    border-color: ${darken(.3, '#dcdce6')};
+    border-color: ${lighten(.1, '#7159c1')};
   }
- 
 `;
+
 
 export const Title = styled.h1`
   margin: 80px 0 24px;
   font-size: 32px;  
   font-weight: 700;
+  color: #f5f5fd
 `;
 
 export const ListWrapper = styled.ul`
@@ -74,7 +77,7 @@ export const ListWrapper = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  background-color: #fff;
+  background-color: #353956;
   padding:24px;
   border-radius: 8px;
   position: relative
@@ -83,12 +86,12 @@ export const ListItem = styled.li`
 export const ItemTitle = styled.strong`
   display: block;
   margin-bottom: 16px;
-  color: #41414d;
-  font-weight: 500
+  color: #f5f5fd;
+  font-weight: 700
 `;
 
 export const CaseDesciption = styled.p`
-  color: #737380;
+  color: #f3f3dc;
   line-height: 20px;
   font-size: 16px;
 
@@ -101,12 +104,13 @@ export const Trash = styled.button`
   position: absolute;
   right: 24px;
   top: 24px;
-  border: none;
-  color:"#a8a8b3";
+  border: none;  
   background-color: transparent;
   transition: color 150ms;
+  color: #fff;
 
   &:hover {
-    color: ${lighten(.01, "#a8a8b3")}
-  }
+    color: ${lighten(.1, "#7159c1")}
+  }  
 `;
+

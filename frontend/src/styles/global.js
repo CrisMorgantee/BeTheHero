@@ -60,7 +60,7 @@ table {
 
 body {
   font: 400 14px  'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: #f0f0f5;
+  background: #282A36;
   -webkit-font-smoothing: antialiased;
 }
 

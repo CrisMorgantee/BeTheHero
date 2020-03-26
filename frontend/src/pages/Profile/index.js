@@ -1,4 +1,4 @@
-import { Power, Trash } from "@styled-icons/feather/"
+import { Power as PowerIcon, Trash as TrashIcon } from "@styled-icons/feather/"
 import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom"
 import logo from "../../assets/logo.svg"
@@ -50,7 +50,7 @@ export default function Profile() {
 
         <S.LinkNewCase to="/incidents/new">Cadastrar novo caso</S.LinkNewCase>
         <S.Power onClick={handleLogout}>
-          <Power size={18} color="#e02041" />
+          <PowerIcon size={18}  />
         </S.Power>
       </S.Header>
 
@@ -72,7 +72,7 @@ export default function Profile() {
             </S.CaseDesciption>
 
             <S.Trash onClick={() => handleDeleteIncident(incident.id)}>
-              <Trash size={20} />
+              <TrashIcon size={20}  />
             </S.Trash>
           </S.ListItem>
         ))}

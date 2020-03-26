@@ -18,7 +18,7 @@ export const NewIncidentWrapper = styled.div`
 export const ContentWrapper = styled.div`
   width: 100%;
   padding:96px;
-  background-color: #f0f0f5;
+  background-color: #353956;
   box-shadow: 0 0 100px rgba(0, 0, 0, .1);
   border-radius: 8px;
 
@@ -40,11 +40,12 @@ export const Title = styled.h1`
   margin: 64px 0 32px;
   font-size: 32px;
   font-weight: 700;
+  color: #f5f5fd
 `
 
 export const Description = styled.p`
   font-size: 18px;
-  color: #737380;
+  color: #f3f3dc;
   line-height: 32px
 `
 
@@ -52,20 +53,20 @@ export const Action = styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 40px;
-  color: #41414d;
+  color: #F8F8F2;
   font-size: 18px;
   text-decoration: none;
   font-weight: 500;
   transition: color 150ms;
 
   &:hover {
-    color: ${lighten(0.2, "#41414d")};
+    color: ${lighten(0.2, "#7159c1")};
   }
 `
 
 export const IconBack = styled(back)`
   width: 16px;
-  color: #e02041;
+  color: #fff;
   margin-right: 8px
 `
 
