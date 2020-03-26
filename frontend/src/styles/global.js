@@ -55,7 +55,7 @@ table {
 
 * {
   box-sizing: border-box;
-  outline: 0
+  outline: none
 }
 
 body {
@@ -69,9 +69,8 @@ input, button, textarea {
 }
 
 button {
-  cursor: pointer
+  cursor: pointer;	
 }
-
 `;
 
 export default GlobalStyles

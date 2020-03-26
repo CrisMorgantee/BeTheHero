@@ -1,8 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from "react-router-dom"
 import logo from "../../assets/logo.svg"
+import api from '../../services/api'
 import * as S from './styled'
 
 export default function Register() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [whatsapp, setWhatsapp] = useState('')
+  const [city, setCity] = useState('')
+  const [uf, setUf] = useState('')
+const history = useHistory()
+ async function handleRegister(e) {
+    e.preventDefault()
+
+    const data = {
+      name,
+      email,
+      whatsapp,
+      city,
+      uf
+    }
+
+    try {
+      const response = await api.post('ongs', data)
+      alert( response.data.id);
+      history.push('/')
+    } catch (error) {
+      alert('Algo deu errado!')
+    }
+    
+
+  }
+
   return (
     <S.RegisterWrapper>
       <S.ContentWrapper>
@@ -19,14 +49,36 @@ export default function Register() {
           </S.LinkRegister>
         </S.Content>
 
-        <S.Form>
-          <S.Input placeholder="Nome da ONG" />
-          <S.Input type="email" placeholder="E-Mail" />
-          <S.Input placeholder="Whatsapp" />
+        <S.Form onSubmit={handleRegister}>
+          <S.Input
+            placeholder="Nome da ONG"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
+          <S.Input
+            type="email"
+            placeholder="E-Mail"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <S.Input
+            placeholder="Whatsapp"
+            value={whatsapp}
+            onChange={e => setWhatsapp(e.target.value)}
+          />
 
           <S.InputGroup>
-            <S.Input placeholder="Cidade" />
-            <S.Input placeholder="UF" style={{width: 80}} />
+            <S.Input
+              placeholder="Cidade"
+              value={city}
+              onChange={e => setCity(e.target.value)}
+            />
+            <S.Input
+              placeholder="UF"
+              style={{ width: 80 }}
+              value={uf}
+              onChange={e => setUf(e.target.value)}
+            />
           </S.InputGroup>
 
           <S.FormSubmit>Cadastrar</S.FormSubmit>
