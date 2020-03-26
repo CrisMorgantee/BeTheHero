@@ -1,34 +1,38 @@
-import React, { useState } from 'react'
-import { useHistory } from "react-router-dom"
-import logo from "../../assets/logo.svg"
-import api from "../../services/api"
-import * as S from './styled.js'
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import logo from "../../assets/logo.svg";
+import api from "../../services/api";
+import * as S from "./styled.js";
 
 export default function NewIncident() {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [value, setValue] = useState('')
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [value, setValue] = useState("");
 
-  const ongId = localStorage.getItem('ongId')
-  const history = useHistory()
+  const ongId = localStorage.getItem("ongId");
+  const history = useHistory();
 
   async function handleNewIncident(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     const data = {
-      title, description, value
-    }
+      title,
+      description,
+      value
+    };
 
     try {
-      await api.post('incidents', data, {
+      await api.post("incidents", data, {
         headers: {
           Authorization: ongId
-        } 
-      })
+        }
+      });
 
-      history.push('/profile')
+      history.push("/profile");
+      toast.success("Caso registrado com sucesso.");
     } catch (error) {
-      alert('Nao foi possivel cadastrar.')
+      toast.error("Nao foi possivel cadastrar.");
     }
   }
 

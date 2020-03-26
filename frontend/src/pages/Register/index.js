@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
-import { useHistory } from "react-router-dom"
-import logo from "../../assets/logo.svg"
-import api from '../../services/api'
-import * as S from './styled'
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import logo from "../../assets/logo.svg";
+import api from "../../services/api";
+import * as S from "./styled";
 
 export default function Register() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [whatsapp, setWhatsapp] = useState('')
-  const [city, setCity] = useState('')
-  const [uf, setUf] = useState('')
-const history = useHistory()
- async function handleRegister(e) {
-    e.preventDefault()
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [city, setCity] = useState("");
+  const [uf, setUf] = useState("");
+  const history = useHistory();
+  async function handleRegister(e) {
+    e.preventDefault();
 
     const data = {
       name,
@@ -20,17 +21,27 @@ const history = useHistory()
       whatsapp,
       city,
       uf
-    }
+    };
 
     try {
-      const response = await api.post('ongs', data)
-      alert( response.data.id);
-      history.push('/')
+      if ((name, email, whatsapp, city, uf === "")) {
+        return toast.warn("Nenhum campo pode ficar vazio.");
+      }
+      const response = await api.post("ongs", data);
+      history.push("/");
+      toast(
+        `ONG cadastrada com sucesso. Utilize ${response.data.id} para fazer login`,
+        {
+          type: "success",
+          autoClose: false,
+          position: "bottom-center",
+          draggable: false,
+          closeOnClick: false
+        }
+      );
     } catch (error) {
-      alert('Algo deu errado!')
+      toast.error("Algo deu errado!");
     }
-    
-
   }
 
   return (

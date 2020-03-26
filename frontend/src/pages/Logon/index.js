@@ -1,26 +1,30 @@
-import React, { useState } from "react"
-import { useHistory } from "react-router-dom"
-import heroesImg from "../../assets/heroes.png"
-import logo from "../../assets/logo.svg"
-import api from "../../services/api"
-import * as S from "./styled.js"
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import heroesImg from "../../assets/heroes.png";
+import logo from "../../assets/logo.svg";
+import api from "../../services/api";
+import * as S from "./styled.js";
 
 export default function Logon() {
-  const [id, setId] = useState('')
-  const history = useHistory('')
+  const [id, setId] = useState("");
+  const history = useHistory("");
 
   async function handleLogin(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      const response = await api.post('sessions', {id})
+      if (id === "") {
+        return toast.warn("Insira seu ID");
+      }
+      const response = await api.post("sessions", { id });
 
-      localStorage.setItem('ongId', id)
-      localStorage.setItem('ongName', response.data.name)
+      localStorage.setItem("ongId", id);
+      localStorage.setItem("ongName", response.data.name);
 
-      history.push('/profile')
+      history.push("/profile");
     } catch (error) {
-      alert('Nao foi possivel fazer login')
+      toast.error("Nao foi possivel fazer login");
     }
   }
 
@@ -32,11 +36,11 @@ export default function Logon() {
         <S.Form onSubmit={handleLogin}>
           <S.FormTitle>Faça seu logon</S.FormTitle>
 
-          <S.FormInput 
-            placeholder="Sua ID" 
+          <S.FormInput
+            placeholder="Sua ID"
             value={id}
             onChange={e => setId(e.target.value)}
-            />
+          />
           <S.FormSubmit type="submit">Entrar</S.FormSubmit>
 
           <S.LinkRegister to="/register">

@@ -1,6 +1,5 @@
-
-import { createGlobalStyle } from "styled-components"
-
+import "react-toastify/dist/ReactToastify.css";
+import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -73,4 +72,4 @@ button {
 }
 `;
 
-export default GlobalStyles
+export default GlobalStyles;

@@ -1,15 +1,16 @@
-import { Power as PowerIcon, Trash as TrashIcon } from "@styled-icons/feather/"
-import React, { useEffect, useState } from 'react'
-import { useHistory } from "react-router-dom"
-import logo from "../../assets/logo.svg"
-import api from '../../services/api'
-import * as S from './styled'
+import { Power as PowerIcon, Trash as TrashIcon } from "@styled-icons/feather/";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import logo from "../../assets/logo.svg";
+import api from "../../services/api";
+import * as S from "./styled";
 
 export default function Profile() {
-  const [incidents,setIncidents] = useState([])
-  const ongId = localStorage.getItem("ongId"); 
-  const ongName = localStorage.getItem('ongName')
-  const history = useHistory()
+  const [incidents, setIncidents] = useState([]);
+  const ongId = localStorage.getItem("ongId");
+  const ongName = localStorage.getItem("ongName");
+  const history = useHistory();
 
   useEffect(() => {
     api
@@ -29,17 +30,18 @@ export default function Profile() {
         headers: {
           Authorization: ongId
         }
-      })
-      setIncidents(incidents.filter(incident => incident.id !== id))
+      });
+      setIncidents(incidents.filter(incident => incident.id !== id));
+      toast.success("Caso removido!");
     } catch (error) {
-      alert('Nao foi possivel deletar')
+      toast.error("Nao foi possivel deletar");
     }
   }
 
-  function handleLogout( ) {
-    localStorage.clear()
+  function handleLogout() {
+    localStorage.clear();
 
-    history.push('/')
+    history.push("/");
   }
 
   return (
@@ -50,7 +52,7 @@ export default function Profile() {
 
         <S.LinkNewCase to="/incidents/new">Cadastrar novo caso</S.LinkNewCase>
         <S.Power onClick={handleLogout}>
-          <PowerIcon size={18}  />
+          <PowerIcon size={18} />
         </S.Power>
       </S.Header>
 
@@ -72,7 +74,7 @@ export default function Profile() {
             </S.CaseDesciption>
 
             <S.Trash onClick={() => handleDeleteIncident(incident.id)}>
-              <TrashIcon size={20}  />
+              <TrashIcon size={20} />
             </S.Trash>
           </S.ListItem>
         ))}
