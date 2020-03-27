@@ -16,32 +16,32 @@ export default function Incidents() {
 
   function navigateToDetail(incident) {
     navigation.navigate("Detail", { incident });
+  }
 
-    async function loadIncidents() {
-      if (loading) {
-        return;
-      }
-
-      if (total > 0 && incidents.length === total) {
-        return;
-      }
-
-      setLoading(true);
-
-      const response = await api.get("incident", {
-        params: { page }
-      });
-
-      setIncidents([...incidents, ...response.data]);
-      setTotal(response.headers["x-total-count"]);
-      setPage(page + 1);
-      setLoading(false);
+  async function loadIncidents() {
+    if (loading) {
+      return;
     }
 
-    useEffect(() => {
-      loadIncidents();
-    }, []);
+    if (total > 0 && incidents.length === total) {
+      return;
+    }
+
+    setLoading(true);
+
+    const response = await api.get("incidents", {
+      params: { page }
+    });
+
+    setIncidents([...response.data, ...incidents]);
+    setTotal(response.headers["x-total-count"]);
+    setPage(page + 1);
+    setLoading(false);
   }
+
+  useEffect(() => {
+    loadIncidents();
+  }, [incidents]);
 
   return (
     <View style={styles.container}>
@@ -62,12 +62,16 @@ export default function Incidents() {
         style={styles.incidentList}
         keyExtractor={incident => String(incident.id)}
         showsVerticalScrollIndicator={false}
-        //onEndReached={loadIncidents}
-        //onEndReachedThreshold={0.2}
+        onEndReached={loadIncidents}
+        onEndReachedThreshold={0.2}
         renderItem={({ item: incident }) => (
           <View style={styles.incident}>
             <Text style={styles.incidentProperty}>ONG:</Text>
-            <Text style={styles.incidentValue}>{incident.name}</Text>
+            <Text style={styles.incidentValue}>
+              <Text style={styles.incidentValue}>
+                {incident.name} de {incident.city}/{incident.uf}
+              </Text>
+            </Text>
 
             <Text style={styles.incidentProperty}>Caso:</Text>
             <Text style={styles.incidentValue}>{incident.title}</Text>
