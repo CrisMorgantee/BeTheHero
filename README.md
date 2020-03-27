@@ -24,7 +24,7 @@
 
 > Apresentação em vídeo:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/l3lxj9S5LEU/0.jpg)](https://www.youtube.com/watch?v=l3lxj9S5LEU)
+![Video Web](./frontend/src/assets/web.gif)
 
 ---
 
@@ -32,7 +32,7 @@
 
 > ### Tela Home
 
-![Tela Home](./mobile/src/assets/mobile-home.png =250x)
+![Tela Home](./mobile/src/assets/mobile-home.png)
 
 ---
 
@@ -50,7 +50,7 @@
 
 > Apresentação em vídeo:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9aHH9OIn_tc/0.jpg)](https://www.youtube.com/watch?v=9aHH9OIn_tc)
+![Video Mobile](./mobile/src/assets/video-mobile.gif)
 
 ---
 
@@ -83,5 +83,3 @@
     - @react-navigation/native
     - @react-navigation/stack
   - Intl
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/9aHH9OIn_tc/0.jpg)](https://www.youtube.com/watch?v=9aHH9OIn_tc)
